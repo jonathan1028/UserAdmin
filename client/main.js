@@ -4,19 +4,16 @@ import React, {Component} from 'react';
 import { render } from 'react-dom';
 import '../imports/startup/client/routes';
 import Books from '../imports/ui/containers/Books';
+import { App } from '../imports/startup/client/routes';
 
-//method render from react-dom package
-//This method renders a React component to the <div> with the id='react-root'
-render(
-  <Books />,
-  document.getElementById('react-root')
-);
+
+
 
 
 
 //Testing
 //Get a better idea of what 'default' is for
-export default class Welcome extends React.Component {
+export class Welcome extends React.Component {
   //according to documentation: Class components should always call the base constructor and super with props.
   constructor(props) {
     super(props);
@@ -99,12 +96,14 @@ export class TodoItem extends React.Component {
   }
 }
 
-render(
-  <Welcome
-    //mssg='test message'
-  />,
-  document.getElementById('welcome')
-);
+//method render from react-dom package
+//This method renders a React component to the <div> with the id='react-root'
+// render(
+//   <div>
+//     <App/>
+//   </div>,
+//   document.getElementById('react-root')
+// );
 
 
 
