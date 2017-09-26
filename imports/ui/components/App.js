@@ -3,7 +3,7 @@ import React from 'react';
 export class App extends React.Component {
   render(){
     return(
-      <h1>Index Page</h1>
+      <h1>Application Code</h1>
     );
   }
 }

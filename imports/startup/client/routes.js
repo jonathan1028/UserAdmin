@@ -1,19 +1,24 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import {render} from 'react-dom';
-import {Welcome} from '../../../client/main';
+import LandingPage from '../../ui/layouts/LandingPage';
+import MainLayout from '../../ui/layouts/MainLayout';
+import AdminLayout from '../../ui/layouts/AdminLayout';
 import {App} from '../../ui/components/App';
-import {Admin} from '../../ui/components/Admin';
+import {AdminDashboard} from '../../ui/components/AdminDashboard';
 import {Users} from '../../ui/components/Users';
-
-
 
 
 render(
   <BrowserRouter>
     <div>
-      <Route exact={true} path={'/'} component={App}></Route>
-      <Route exact={true} path={'/admin'} component={Admin}></Route>
+      <Route exact={true} path={'/'} component={LandingPage}/>
+
+      <Route exact={true} path={'/dashboard'} component={MainLayout}/>
+      <Route exact={true} path={'/dashboard'} component={App}/>
+
+      <Route path={'/admin'} component={AdminLayout}></Route>
+      <Route exact={true} path={'/admin/dashboard'} component={AdminDashboard}></Route>
       <Route path={'/admin/users'} component={Users}></Route>
     </div>
   </BrowserRouter>,

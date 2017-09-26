@@ -1,7 +1,7 @@
 import React from 'react';
 import {Welcome} from './Welcome.js';
 
-export class Admin extends React.Component {
+export class AdminDashboard extends React.Component {
   render(){
     return(
       <div>
