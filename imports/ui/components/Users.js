@@ -42,6 +42,15 @@ export class Users extends React.Component {
             </tbody>
           </table>
         </div>
+
+        {/* <form className='add-user' onSubmit={this.addUser}> */}
+        <form className='add-user'>
+          <input type='text' ref='firstName'/>
+          <input type='text' ref='lastName'/>
+          <button type='submit'>Add User</button>
+        </form>
+
+
       </div>
     );
   }

@@ -95,36 +95,3 @@ export class TodoItem extends React.Component {
     );
   }
 }
-
-//method render from react-dom package
-//This method renders a React component to the <div> with the id='react-root'
-// render(
-//   <div>
-//     <App/>
-//   </div>,
-//   document.getElementById('react-root')
-// );
-
-
-
-
-
-//method render from react-dom package
-//This method is responsible for rendering a React component to the screen
-// render(
-//   <Books
-//     firstName="Alaina"
-//     readBooks={[
-//       { title: 'Liminal Thinking', author: 'Dave Gray' },
-//       { title: 'Personal History', author: 'Katharine Graham' },
-//       { title: 'Born Standing Up', author: 'Steve Martin' },
-//     ]}
-//     unreadBooks={[
-//       { title: 'The Course of Love', author: 'Alain De Botton' },
-//       { title: 'Too Soon Old, Too Late Smart', author: 'Gordon Livingston' },
-//       { title: 'Servant Leadership', author: 'Robert K. Greenleaf' },
-//     ]}
-//   />,
-//   //passing the books to element in main.html to be rendered
-//   document.getElementById('react-root')
-// );
