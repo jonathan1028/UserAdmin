@@ -5,10 +5,11 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 //import Books from '../components/Books';
-import { Books as BooksCollection } from '../../api/books/books.js';
+//import { Books as BooksCollection } from '../../api/books/books.js';
+import { Items as ItemsCollection } from '../../api/items.js';
 
 
-export class Books extends React.Component {
+export class Items extends React.Component {
   // constructor(props) {
   //   super(props);
   //   //this.state = { activeTab: 'read' };
@@ -47,9 +48,9 @@ export class Books extends React.Component {
       //   </div>
       <div>
         <div>
-          <h2>Books List</h2>
-          <h4>{this.props.firstName} Books</h4>
-
+          <h2>Test</h2>
+          {/* <h4>{this.props.firstName} Books</h4> */}
+          <h4>Items</h4>
           <div className="table-responsive">
             <table className="table">
               <tbody>
@@ -63,12 +64,11 @@ export class Books extends React.Component {
                   <th>Sign Up</th>
                   <th>Suspend</th>
                 </tr>
-
-                {this.props.readBooks.map((book) => {
+                {this.props.items.map((item) => {
                   return (
-                    <tr key={book._id}>
-                      <td>{ book.title }</td>
-                      <td>{ book.author }</td>
+                    <tr key={item._id}>
+                      <td>{ item.itemOne.text }</td>
+                      <td>Smith</td>
                       <td>Smith</td>
                       <td>Email</td>
                       <td>yesterday</td>
@@ -94,19 +94,25 @@ export class Books extends React.Component {
             </table>
           </div>
 
-
         </div>
       </div>
     );
   }
 }
 
-export default createContainer(() => {
-  const subscription = Meteor.subscribe('books');
+// export default createContainer(() => {
+//   const subscription = Meteor.subscribe('books');
+//
+//   return {
+//     firstName: 'Alaina',
+//     readBooks: BooksCollection.find({ read: true }).fetch(),
+//     // unreadBooks: BooksCollection.find({ read: false }).fetch(),
+//   };
+// }, Books);
 
+export default createContainer(() => {
+  let itemsSub = Meteor.subscribe('allItems');
   return {
-    firstName: 'Alaina',
-    readBooks: BooksCollection.find({ read: true }).fetch(),
-    // unreadBooks: BooksCollection.find({ read: false }).fetch(),
-  };
-}, Books);
+    items: ItemsCollection.find({}).fetch()
+  }
+}, Items);

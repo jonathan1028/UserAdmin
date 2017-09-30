@@ -1,9 +1,14 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
+import { createContainer } from 'meteor/react-meteor-data';
+//import { Users as UsersCollection } from '../../api/books/books.js';
+
 
 export class Users extends React.Component {
   render(){
     return(
       <div>
+
         <h1>Users List</h1>
         <div className="table-responsive">
           <table className="table">
@@ -18,27 +23,23 @@ export class Users extends React.Component {
                 <th>Sign Up</th>
                 <th>Suspend</th>
               </tr>
-              <tr>
-                <td>Bookkeeper</td>
-                <td>Jill</td>
-                <td>Smith</td>
-                <td>Email</td>
-                <td>yesterday</td>
-                <td>USA</td>
-                <td>10.21.15</td>
-                <td></td>
 
-              </tr>
-              <tr>
-                <td>Sales Person</td>
-                <td>Eve</td>
-                <td>Jackson</td>
-                <td>Email</td>
-                <td>yesterday</td>
-                <td>USA</td>
-                <td>5.12.14</td>
-                <td></td>
-              </tr>
+              {this.props.users.map((user) => {
+                return (
+                  <tr key={user._id}>
+                    <td>Role</td>
+                    <td></td>
+                    <td></td>
+                    <td>{user.emails[0].address}</td>
+                    <td></td>
+                    <td></td>
+                    {/* <td>{user.createdAt}</td> */}
+                    <td></td>
+                    <td></td>
+                  </tr>
+                )
+              })}
+
             </tbody>
           </table>
         </div>
@@ -55,3 +56,12 @@ export class Users extends React.Component {
     );
   }
 }
+
+
+export default createContainer(() => {
+  const subscription = Meteor.subscribe('userData');
+
+  return {
+    users: Meteor.users.find().fetch(),
+  };
+}, Users);

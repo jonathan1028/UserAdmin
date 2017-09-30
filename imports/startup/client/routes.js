@@ -7,6 +7,7 @@ import AdminLayout from '../../ui/layouts/AdminLayout';
 import {App} from '../../ui/components/App';
 import {AdminDashboard} from '../../ui/components/AdminDashboard';
 import {Users} from '../../ui/components/Users';
+import {Voting} from '../../ui/components/Voting';
 
 //method render from react-dom package
 //This method renders a React component to the <div> with the id='root'
@@ -21,6 +22,7 @@ render(
       <Route path={'/admin'} component={AdminLayout}></Route>
       <Route exact={true} path={'/admin/dashboard'} component={AdminDashboard}></Route>
       <Route path={'/admin/users'} component={Users}></Route>
+      <Route path={'/admin/voting'} component={Voting}></Route>
     </div>
   </BrowserRouter>,
 

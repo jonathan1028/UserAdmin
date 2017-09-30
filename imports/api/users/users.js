@@ -1,6 +1,11 @@
-// import { Mongo } from 'meteor/mongo';
+import { Mongo } from 'meteor/mongo';
+//import { MongoObservable } from 'meteor/mongo';
+//import { Meteor, MongoObservable } from 'meteor/meteor';
+
 // import SimpleSchema from 'simpl-schema';
 //
+
+//export const Users = MongoObservable.fromExisting(Meteor.users);
 // const Users = new Mongo.Collection('users');
 //
 // const UsersSchema = Users.attachSchema(new SimpleSchema({
