@@ -15,8 +15,8 @@ export class Users extends React.Component {
             <tbody>
               <tr>
                 <th>Role</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
+                <th>First Name</th>
+                <th>Last Name</th>
                 <th>Email</th>
                 <th>Last Login</th>
                 <th>Country</th>
@@ -27,12 +27,14 @@ export class Users extends React.Component {
               {this.props.users.map((user) => {
                 return (
                   <tr key={user._id}>
-                    <td>Role</td>
-                    <td></td>
-                    <td></td>
+                    {/* <td></td> */}
+                    <td>{user._id}</td>
+                    <td>{user.firstName}</td>
+                    <td>{user.lastName}</td>
                     <td>{user.emails[0].address}</td>
                     <td></td>
                     <td></td>
+                    <td>{moment(user.createdAt).fromNow()}</td>
                     {/* <td>{user.createdAt}</td> */}
                     <td></td>
                     <td></td>
@@ -61,7 +63,10 @@ export class Users extends React.Component {
 export default createContainer(() => {
   const subscription = Meteor.subscribe('userData');
 
-  return {
-    users: Meteor.users.find().fetch(),
-  };
+  if(Meteor.users.find()){
+    return {
+      users: Meteor.users.find().fetch(),
+    };
+  }
+
 }, Users);

@@ -10,6 +10,10 @@ import {AdminDashboard} from '../../ui/components/AdminDashboard';
 import {Users} from '../../ui/components/Users';
 import {Voting} from '../../ui/components/Voting';
 
+//Pages
+import SignupPage from '../../ui/pages/SignupPage'
+import LoginPage from '../../ui/pages/LoginPage'
+
 //method render from react-dom package
 //This method renders a React component to the <div> with the id='root'
 
@@ -37,6 +41,8 @@ render(
   <Router>
     <div>
       <Route exact={true} path={'/'} component={LandingPage}/>
+      <Route path="/login" component={LoginPage}/>
+      <Route path="/signup" component={SignupPage}/>
 
       {/* <PrivateRoute component={Users}/> */}
       <PrivateRoute path={'/dashboard'} component={MainLayout}/>
@@ -44,7 +50,6 @@ render(
 
       <Route path={'/admin'} component={AdminLayout}></Route>
       <Route exact={true} path={'/admin/dashboard'} component={AdminDashboard}></Route>
-      <Route path={'/admin/users'} component={Users}></Route>
       <Route path={'/admin/voting'} component={Voting}></Route>
     </div>
   </Router>,

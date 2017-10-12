@@ -24,3 +24,4 @@ std:accounts-bootstrap
 twbs:bootstrap
 alanning:roles
 accounts-ui
+momentjs:moment

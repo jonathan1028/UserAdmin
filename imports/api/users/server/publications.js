@@ -3,6 +3,6 @@ import { Users } from '../users';
 
 Meteor.publish('userData', function() {
   return Meteor.users.find({}, {
-      fields: { createdAt: 1, emails: 1 }
+      //fields: {firstName: 1, email: 1}
     })
 });
